@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Farris Law Firm
 
-## Getting Started
+Website for Farris Law Firm, a criminal defense practice serving Orange County,
+Los Angeles County, and the San Fernando Valley.
 
-First, run the development server:
+Built with Next.js (App Router) and Tailwind CSS as a fully static site. It is a
+redesign of the existing farrisfirm.com, rebuilt to preserve every ranking URL
+while modernizing the design and expanding content.
+
+## Running locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To build the production site:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+## Deploying
 
-To learn more about Next.js, take a look at the following resources:
+This is a standard Next.js app and deploys to Vercel with zero configuration:
+import the repository at [vercel.com/new](https://vercel.com/new) and deploy.
+Netlify and other Next.js hosts work as well.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## How it is organized
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `app/` — routes. The homepage, plus a catch-all (`app/[...slug]/`) that serves
+  migrated pages, location pages, practice-area pages, and blog posts.
+- `components/` — the shared header, footer, page templates, and motion helpers.
+- `content/` — the migrated page content from the original site, preserved as
+  JSON so existing URLs and their SEO stay intact.
+- `lib/` — structured data for the new pages (locations, practice areas, blog
+  posts, victories) and site-wide settings.
+- `public/` — images, including the firm's photography and generated artwork.
 
-## Deploy on Vercel
+## SEO parity
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Every URL from the original WordPress site is preserved at the same path, with
+titles, meta descriptions, and headings matched exactly (a few deliberate,
+documented improvements aside). This protects the existing search rankings
+during the redesign.
