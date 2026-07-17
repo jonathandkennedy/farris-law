@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogIndex from "@/components/templates/BlogIndex";
 import PracticeHub from "@/components/templates/PracticeHub";
+import ReviewsPage from "@/components/templates/ReviewsPage";
 import VictoriesGrid from "@/components/templates/VictoriesPage";
 import { CtaBand } from "@/components/templates/shared";
 import LocationPage from "@/components/templates/LocationPage";
@@ -65,10 +66,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!page) return {};
   // The migrated /practice-areas/ meta wrongly advertises personal injury and
   // family law (leftover template text). Title/H1 stay for parity; fix the meta.
-  const description =
-    joined === "practice-areas"
-      ? "Explore the criminal defense practice areas at Farris Law Firm: DUI, domestic violence, assault, theft, drug and weapons charges, and more across Orange County and Los Angeles."
-      : page.metaDescription;
+  const metaOverrides: Record<string, string> = {
+    "practice-areas":
+      "Explore the criminal defense practice areas at Farris Law Firm: DUI, domestic violence, assault, theft, drug and weapons charges, and more across Orange County and Los Angeles.",
+    "about/reviews":
+      "Read what Farris Law Firm clients say. 5.0 stars across dozens of reviews from Orange County, Los Angeles, and the San Fernando Valley. Free consultations 24/7.",
+  };
+  const description = metaOverrides[joined] ?? page.metaDescription;
   return {
     title: page.title,
     description,
@@ -94,6 +98,8 @@ export default async function Page({ params }: Props) {
   if (joined === "blog") return <BlogIndex />;
 
   if (joined === "practice-areas") return <PracticeHub />;
+
+  if (joined === "about/reviews") return <ReviewsPage />;
 
   if (joined === "recent-victories") {
     return (
