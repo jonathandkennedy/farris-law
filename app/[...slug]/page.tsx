@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import BlogIndex from "@/components/templates/BlogIndex";
 import PracticeHub from "@/components/templates/PracticeHub";
 import ReviewsPage from "@/components/templates/ReviewsPage";
+import TestimonialsPage from "@/components/templates/TestimonialsPage";
 import VictoriesGrid from "@/components/templates/VictoriesPage";
 import { CtaBand } from "@/components/templates/shared";
 import LocationPage from "@/components/templates/LocationPage";
@@ -100,6 +101,8 @@ export default async function Page({ params }: Props) {
   if (joined === "practice-areas") return <PracticeHub />;
 
   if (joined === "about/reviews") return <ReviewsPage />;
+
+  if (joined === "about/testimonials") return <TestimonialsPage />;
 
   if (joined === "recent-victories") {
     return (

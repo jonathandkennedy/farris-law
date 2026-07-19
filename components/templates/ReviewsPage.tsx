@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { REVIEWS, REVIEW_COUNT } from "@/lib/reviews-data";
 import { SITE } from "@/lib/site";
 import { CtaBand } from "./shared";
@@ -59,6 +60,12 @@ export default function ReviewsPage() {
                 and the San Fernando Valley. We are honored by the trust they
                 have placed in us.
               </p>
+              <Link
+                href="/about/testimonials/"
+                className="mt-4 inline-block text-sm font-semibold text-gold-400 underline decoration-gold-500 underline-offset-4 hover:text-gold-500"
+              >
+                Read longer client testimonials
+              </Link>
             </div>
             <div className="shrink-0 rounded border border-navy-700 bg-navy-900/60 p-6 text-center">
               <div className="font-display text-5xl font-bold text-gold-400">
