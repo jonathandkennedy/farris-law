@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LOCATIONS } from "@/lib/locations-data";
+import { SITE } from "@/lib/site";
 import { CtaBand, PageHero } from "@/components/templates/shared";
 
 export const metadata: Metadata = {
@@ -25,12 +26,57 @@ const LEGACY_LA = [
   { label: "Ventura", href: "/ventura-criminal-defense-lawyer/" },
 ];
 
+const COUNTY = [
+  { label: "Orange County DUI", href: "/orange-county-dui-lawyer/" },
+  { label: "Orange County Domestic Violence", href: "/orange-county-domestic-violence-lawyer/" },
+  { label: "Orange County Gun Charges", href: "/orange-county-gun-charges-lawyer/" },
+  { label: "Los Angeles DUI", href: "/los-angeles-dui-lawyer/" },
+];
+
 export default function LocationsPage() {
   const oc = LOCATIONS.filter((l) => l.county === "Orange County");
   const la = LOCATIONS.filter((l) => l.county === "Los Angeles County");
 
+  const allItems = [
+    ...COUNTY,
+    ...oc.map((l) => ({ label: l.city, href: `/${l.slug}/` })),
+    ...la.map((l) => ({ label: l.city, href: `/${l.slug}/` })),
+    ...LEGACY_LA,
+  ];
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { name: "Home", path: "/" },
+          { name: "Locations", path: "/locations/" },
+        ].map((it, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: it.name,
+          item: SITE.url + it.path,
+        })),
+      },
+      {
+        "@type": "ItemList",
+        name: "Locations Served",
+        itemListElement: allItems.map((it, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: it.label,
+          url: SITE.url + it.href,
+        })),
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <PageHero
         kicker="Southern California"
         h1="Locations We Serve"

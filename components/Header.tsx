@@ -29,12 +29,20 @@ export default function Header() {
                 {item.label}
               </Link>
               {item.children && (
-                <div className="invisible absolute left-0 top-full min-w-56 rounded-b-md bg-navy-800 py-2 opacity-0 shadow-xl transition group-hover:visible group-hover:opacity-100">
+                <div
+                  className={`invisible absolute left-0 top-full grid gap-x-2 rounded-b-md bg-navy-800 p-2 opacity-0 shadow-xl transition group-hover:visible group-hover:opacity-100 ${
+                    item.children.length > 14
+                      ? "w-[42rem] grid-cols-3"
+                      : item.children.length > 7
+                        ? "w-[28rem] grid-cols-2"
+                        : "min-w-56 grid-cols-1"
+                  }`}
+                >
                   {item.children.map((c) => (
                     <Link
                       key={c.href}
                       href={c.href}
-                      className="block px-4 py-2 text-sm text-grey-200 hover:bg-navy-700 hover:text-gold-400"
+                      className="block rounded px-3 py-2 text-sm text-grey-200 hover:bg-navy-700 hover:text-gold-400"
                     >
                       {c.label}
                     </Link>

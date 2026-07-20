@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SITE } from "@/lib/site";
 import { CtaBand } from "./shared";
 
 // Grouped practice-area index. Mixes migrated pages and new pages into a
@@ -74,8 +75,40 @@ const GROUPS: { heading: string; items: { label: string; href: string }[] }[] = 
 ];
 
 export default function PracticeHub() {
+  const items = GROUPS.flatMap((g) => g.items);
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { name: "Home", path: "/" },
+          { name: "Practice Areas", path: "/practice-areas/" },
+        ].map((it, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: it.name,
+          item: SITE.url + it.path,
+        })),
+      },
+      {
+        "@type": "ItemList",
+        name: "Criminal Defense Practice Areas",
+        itemListElement: items.map((it, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: it.label,
+          url: SITE.url + it.href,
+        })),
+      },
+    ],
+  };
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="relative overflow-hidden bg-navy-950 py-12 text-white lg:py-16">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(27,58,102,0.55),transparent_60%)]" />
         <div className="relative mx-auto max-w-6xl px-4 lg:px-6">

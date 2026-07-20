@@ -563,10 +563,10 @@ export const QA_POSTS: QaPost[] = [
       },
     ],
     related: [
+      { label: "Orange County DUI Defense", href: "/orange-county-dui-lawyer/" },
       { label: "How to Choose a Criminal Defense Lawyer", href: "/blog/how-to-choose-a-criminal-defense-lawyer/" },
       { label: "How Much Does a DUI Lawyer Cost?", href: "/blog/how-much-does-a-dui-lawyer-cost/" },
       { label: "Recent Victories", href: "/recent-victories/" },
-      { label: "About Farris Law Firm", href: "/about-us/" },
     ],
     image: "/images/generated/qa-boutique-firm.webp",
   },

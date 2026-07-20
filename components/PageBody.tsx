@@ -37,6 +37,34 @@ export default function PageBody({
         publisher: { "@id": `${SITE.url}/#organization` },
       }
     : null;
+
+  // Fix #4: breadcrumb schema for migrated practice and location pages
+  // (the new template pages already emit their own).
+  const isMigLocation =
+    page.path.includes("criminal-defense") ||
+    page.path.startsWith("/burbank-") ||
+    page.path === "/dui-defense-lawyers-in-burbank/";
+  const crumbParent = practiceTldr
+    ? { name: "Practice Areas", path: "/practice-areas/" }
+    : isMigLocation
+      ? { name: "Locations", path: "/locations/" }
+      : null;
+  const breadcrumbLd = crumbParent
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { name: "Home", path: "/" },
+          crumbParent,
+          { name: page.h1 || page.title, path: page.path },
+        ].map((it, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: it.name,
+          item: SITE.url + it.path,
+        })),
+      }
+    : null;
   return (
     <>
       <div className="bg-navy-900 py-10 text-white lg:py-14">
@@ -65,6 +93,12 @@ export default function PageBody({
       </div>
 
       <article className="mx-auto max-w-4xl px-4 py-10 lg:px-6 lg:py-14">
+        {breadcrumbLd && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+          />
+        )}
         {authorJsonLd && (
           <script
             type="application/ld+json"
