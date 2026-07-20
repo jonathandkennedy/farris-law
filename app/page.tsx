@@ -73,7 +73,7 @@ export default function Home() {
               <h1 className="font-display text-4xl font-bold leading-[1.08] tracking-tight text-white lg:text-5xl xl:text-6xl">
                 Criminal Defense Across{" "}
                 <span className="text-gold-400">Orange County</span> and{" "}
-                <span className="text-gold-400">Los Angeles</span>
+                <span className="text-gold-400">Los Angeles County</span>
               </h1>
             </StaggerItem>
             <StaggerItem>
@@ -166,15 +166,17 @@ export default function Home() {
       <section className="mx-auto grid max-w-6xl gap-10 px-4 py-16 lg:grid-cols-[1fr_0.85fr] lg:gap-16 lg:px-6 lg:py-24">
         <Reveal>
           <h2 className="font-display text-3xl font-bold leading-tight text-navy-900 lg:text-4xl">
-            Orange County Criminal Defense Lawyer
+            Orange County and Los Angeles Criminal Defense Lawyers
           </h2>
           <div className="mt-5 space-y-4 leading-relaxed text-grey-700">
             <p>
               If you are facing criminal charges, you need an experienced
-              Orange County criminal defense lawyer who knows the local courts,
-              prosecutors, and legal procedures. At Farris Law Firm, we provide
-              aggressive, strategic defense representation to clients
-              throughout Orange County and Los Angeles.
+              criminal defense lawyer who knows the local courts, prosecutors,
+              and legal procedures. At Farris Law Firm, we provide aggressive,
+              strategic defense representation to clients throughout Orange
+              County and Los Angeles County, with offices in Aliso Viejo and
+              Burbank so we are close to the courthouse wherever your case is
+              heard.
             </p>
             <p>
               We are committed to protecting your rights, your record, and your
@@ -204,7 +206,7 @@ export default function Home() {
           </div>
           <div className="mt-6 rounded bg-navy-900 p-6 text-white">
             <h3 className="font-display text-xl font-bold">
-              About Our Orange County Criminal Defense Lawyers
+              About Our Orange County and Los Angeles Criminal Defense Lawyers
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-grey-200/90">
               Founded by Charles and his wife Beatrice in 2024, Farris Law Firm
@@ -397,7 +399,7 @@ export default function Home() {
       <section className="mx-auto max-w-4xl px-4 py-16 lg:px-6 lg:py-24">
         <Reveal>
           <h2 className="font-display text-3xl font-bold text-navy-900 lg:text-4xl">
-            Get Real Answers from an OC Criminal Defense Lawyer
+            Get Real Answers from an Orange County and Los Angeles Criminal Defense Lawyer
           </h2>
         </Reveal>
         <div className="mt-8 space-y-3">

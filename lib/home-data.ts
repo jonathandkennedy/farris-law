@@ -109,11 +109,11 @@ export const TESTIMONIALS = [
 
 export const FAQS = [
   {
-    q: "What should I do if the police arrest me in Orange County?",
+    q: "What should I do if the police arrest me in Orange County or Los Angeles?",
     a: "If you are arrested, remain calm and request to speak with a criminal defense lawyer from Farris Law Firm. You do not have to say anything during the arrest process. If you're unable to speak with a lawyer at the moment, call us as soon as possible after the fact.",
   },
   {
-    q: "How can an Orange County criminal defense lawyer help me?",
+    q: "How can an Orange County or Los Angeles criminal defense lawyer help me?",
     a: "Our team will use everything at our disposal to attempt to have the case dismissed, negotiate a favorable plea deal, or proceed to jury trial if necessary. It is our job to help you navigate what may be one of the worst experiences of your life. We assist you in moving past this with minimal damage to your career, family, and finances.",
   },
   {
@@ -128,8 +128,8 @@ export const FAQS = [
 
 export const WHY_CHOOSE = [
   {
-    title: "We know Orange County",
-    body: "Our Aliso Viejo office is minutes from Harbor Justice Center and within easy driving distance of all four Orange County criminal courthouses. We know the local court rules, the prosecutors, and the judges.",
+    title: "We know your courthouse",
+    body: "Our Aliso Viejo office sits minutes from Harbor Justice Center and all four Orange County criminal courthouses, and our Burbank office serves the Los Angeles County and San Fernando Valley courts. Either way, we know the local rules, the prosecutors, and the judges.",
   },
   {
     title: "Personalized attention",
