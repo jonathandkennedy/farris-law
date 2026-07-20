@@ -95,13 +95,13 @@ export default function Home() {
               aria-hidden
             />
             <Image
-              src="/images/charles-hero-cutout.png"
+              src="/images/charles-hero-cutout.webp"
               alt="Attorney Charles P. Farris of Farris Law Firm"
               width={895}
               height={775}
               priority
               className="relative z-10 w-full drop-shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
-              sizes="(min-width: 1024px) 45vw, 100vw"
+              sizes="(min-width: 1024px) 45vw, 1px"
             />
           </Reveal>
         </div>

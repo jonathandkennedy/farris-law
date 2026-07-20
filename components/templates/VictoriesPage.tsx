@@ -44,9 +44,9 @@ export default function VictoriesGrid() {
             <span className="text-xs font-semibold uppercase tracking-[0.12em] text-gold-500">
               {v.category}
             </span>
-            <h2 className="font-display mt-1.5 text-lg font-bold text-navy-900">
+            <h3 className="font-display mt-1.5 text-lg font-bold text-navy-900">
               {v.case}
-            </h2>
+            </h3>
             <p className="mt-2 text-sm leading-relaxed text-grey-700">
               {v.outcome}
             </p>
